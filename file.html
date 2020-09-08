@@ -1,0 +1,1833 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths fa-events-icons-ready"><head><style>
+	.caixa{float: left; width: 18px;height:18px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUZERTk1QUQzMDU0MTFFOTkyN0U5Q0Y4RDk1RDA4REEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUZERTk1QUUzMDU0MTFFOTkyN0U5Q0Y4RDk1RDA4REEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRkRFOTVBQjMwNTQxMUU5OTI3RTlDRjhEOTVEMDhEQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRkRFOTVBQzMwNTQxMUU5OTI3RTlDRjhEOTVEMDhEQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrhmsUgAAAFVSURBVHjanNS7SgNBFMbx3SCaeAMREbFRLGysxDcQ7/oAFoIiWJhYWNlbWFmIjSBY+ABiGyx8ACGFlyhoFRtRxEqJEcz4P3A2DsOOm3jgB8vu7Lc7M3s2NMYEnmrDFJbxjH1c+wYHEuTowCLy+DK/9YgdDMTcUwsKMYglnKNi/HWLLHrigsQWqqb+Kmhgi9yf0hkO40jX4zKor1qRRsVeI5nOLrrQiW28et7kBus6th9r9tSudNA9VpHBCE7xrdeKyOmD+rCBO7zYQRfOU88wiSas6Pr1oluPi85ueoOkPnGoU0hhEw8x40pJQVHNYRQfnusle9d8JTtSRVjbHU9FQZmEQJP0LURBT8H/q90OyuIA5QZDZLp5t2ml3ya0We2dm9bFfrPOv+s3Nou022t29+e0OaUWMKahZZxgHs2+pnUNYQ/j+kbHmIma1BX+8WNrqH4EGACXSskh8xbrFQAAAABJRU5ErkJggg=="); }
+	.pedido{float: left; width: 18px;height:18px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjJBOEI2NTgzMDU0MTFFOTkzM0NEQzNENzQ5NDM3RDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjJBOEI2NTkzMDU0MTFFOTkzM0NEQzNENzQ5NDM3RDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMkE4QjY1NjMwNTQxMUU5OTMzQ0RDM0Q3NDk0MzdENSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyMkE4QjY1NzMwNTQxMUU5OTMzQ0RDM0Q3NDk0MzdENSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Psm2zCYAAAFFSURBVHjarNS9SgNBFIbh2dlFg4qoYFAbwU5E0ELT2KUzVSC3kErsLBW8AgtrsfACrOxsLRRBKxuDgiCIlSL+4E8c3wNnZQgT2HU98LDsMHt255tJIufcjDFmBctwKmsluMemodGBK14tS7cJU7wG5NM+vIFDHGEMDYxmbPSVdAzs6HUf8+jFKl4Qe/O+IatZw0Iall8jOEUPSqqOT0TePKf3v7FEBHXMtaL3D7oL/RgPvKhb3dqOgUvNSZo/m5znwK9tPOIGk5AztoFXzcTPSDJrYi7USMJta0ZWs5Dc+gIZWZ0fzOgaFyhjVhv8KSPZpWENOy6S0TpaeMIuprGH9y5Lq2Eq1EgeGNTA2/rwFd4CjWJ/ZyWj8zR56gRnmlEVQxlXdpfo29OqeMHnKStftKi/mSU9H3n+j6zGsSWNzH/UjwADAH05lGcwOg+vAAAAAElFTkSuQmCC"); }
+</style>
+
+<style>
+	.quars{float: left; width: 100%; }
+	.linaq{float: left; background-color: #f9f9f9; height: 40px; width: 100%; border-radius: 20px; margin-top: 15px; }
+	.linaq:hover{background-color: #97d1fa;}
+	.iconecor{float: left; width: 20px; height: 20px; background-color: #77ba99; border-radius: 20px; margin-top: 10px; margin-left: 10px; }
+	.numberx{float: left; width: 80px; color: #686868; font-weight: 500; font-size: 22px; text-align: center; line-height: 40px; }
+	.textx{float: left; width: auto; color: #686868; line-height: 40px;   }
+</style><style>
+	.bol{float: left; height: 15px; width: 15px;  background-color: #77ba99; border-radius: 20px; margin-top: 15px;  }
+	.qtdias{ float: left; width: 60px; height: 43px; background-color: #f7f7f7; text-align: center; line-height: 43px; border-radius: 50px; margin-top: 1px; color: #636363; font-weight: 800 }
+	.cents{float:left; width: 130px; text-align: center; line-height: 45px;  }
+</style><style>
+	.alinha{text-align: right; height: 40px }
+</style><style>
+	.alinha{text-align: right; height: 40px }
+	.reputacao{float: left; width: 55; height: 10px; margin-left: 5px;   }
+</style>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta http-equiv="cleartype" content="on">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans:400,600|Open+Sans+Condensed:700"><link rel="shortcut icon" href="https://ico.precode.com.br/SG/images/logoPrecode.png" type="image/x-icon">
+				<link rel="icon" href="https://ico.precode.com.br/SG/images/logoPrecode.png">
+	<link href="https://use.fontawesome.com/3e7a62b64e.css" media="all" rel="stylesheet"></head><body topmargin="0" leftmargin="0" style="width: 100%; margin: 0px; overflow: auto; background-color: rgb(255, 255, 255); zoom: 1;"><div style="margin: 0 0 0 0;background-color: #f3f1ef; width: 100%; height: 100%;overflow:hidden; position: fixed; opacity: 0.9; top:0; left;0; display:none;z-index:119" id="carregarv2">
+		<div style="left:50%;top:50%;margin-left:-50px; /* Metade do valor da Largura */margin-top:-50px; /* Metade da valor da Altura */position:absolute;width:10px; /* Valor da Largura */height:10px; /* Valor da Altura */ ">
+		<img src="//www.precode.com.br/SG/images/gifprecode.gif">
+		</div>
+		
+	</div>
+	
+	<script type="text/javascript" src="https://bam.nr-data.net/1/75f9fd45c9?a=175962182&amp;v=1177.96a4d39&amp;to=ZlJVY0JQWkBZW0FaCV8YYkVZHmd0F0tWQQ9BQ0QYXF5TWlYWRVsW&amp;rst=2239&amp;ck=1&amp;ref=https://admsiberiano.precode.com.br/SG/scripts/login.php&amp;ap=1273&amp;be=2044&amp;fe=2230&amp;dc=2192&amp;perf=%7B%22timing%22:%7B%22of%22:1598619040041,%22n%22:0,%22u%22:1326,%22ue%22:1326,%22f%22:3,%22dn%22:3,%22dne%22:3,%22c%22:3,%22ce%22:3,%22rq%22:4,%22rp%22:1314,%22rpe%22:1322,%22dl%22:1334,%22di%22:2112,%22ds%22:2112,%22de%22:2192,%22dc%22:2230,%22l%22:2230,%22le%22:2231%7D,%22navigation%22:%7B%7D%7D&amp;fp=1565&amp;fcp=1565&amp;at=ShVWFQpKSU4%3D&amp;jsonp=NREUM.setToken"></script><script src="https://js-agent.newrelic.com/nr-1177.min.js"></script><script src="//www.precode.com.br/SG/scripts/jqueryIcones.js"></script>
+	<script language="javascript">
+					document.getElementById('menups').style.display = "none";
+					document.getElementById('pesqq').style.display = "none";
+					document.getElementById('mostsacdiv').style.display = "none";
+					document.getElementById('mostrelatorios').style.display = "none";
+					document.getElementById('mostraajuda').style.display = "none";
+					
+					function mostraajuda()
+					{
+						
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('mostsacdiv').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+						if(document.getElementById('mostraajuda').style.display == "block")
+						{
+							document.getElementById('mostraajuda').style.display = "none";
+						}else
+						{
+							document.getElementById('mostraajuda').style.display = "block";
+						}
+					}
+					
+					function mostrelatorios()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('mostsacdiv').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+						if(document.getElementById('mostrelatorios').style.display == "block")
+						{
+							document.getElementById('mostrelatorios').style.display = "none";
+						}else
+						{
+							document.getElementById('mostrelatorios').style.display = "block";
+						}
+					}
+					
+					function mostlojas()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('mostsacdiv').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+					
+						if(document.getElementById('mostlojas').style.display == "block")
+						{
+							document.getElementById('mostlojas').style.display = "none";
+						}else
+						{
+							document.getElementById('mostlojas').style.display = "block";
+						}
+						if(window.innerWidth <= 690)
+						{
+							document.getElementById('mostlojas').style.width = (window.innerWidth - 10) + "px";
+							document.getElementById('mostlojas').style.height = (window.innerHeight - 70) + "px";
+						}
+					
+					}
+					
+					function mostmenu()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('mostsacdiv').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+					
+						if(document.getElementById('menups').style.display == "block")
+						{
+							document.getElementById('menups').style.display = "none";
+						}else
+						{
+							document.getElementById('menups').style.display = "block";
+						}
+					}
+					function mostsac()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+					
+						if(document.getElementById('mostsacdiv').style.display == "block")
+						{
+							document.getElementById('mostsacdiv').style.display = "none";
+						}else
+						{
+							document.getElementById('mostsacdiv').style.display = "block";
+						}
+					}
+					function sommenu()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('pesqq').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+					}
+					
+					function mostpesq()
+					{
+						document.getElementById('mostraajuda').style.display = "none";
+						document.getElementById('menups').style.display = "none";
+						document.getElementById('mostsacdiv').style.display = "none";
+						document.getElementById('mostrelatorios').style.display = "none";
+						document.getElementById('mostlojas').style.display = "none";
+					
+						if(document.getElementById('pesqq').style.display == "block")
+						{
+							document.getElementById('pesqq').style.display = "none";
+						}else
+						{
+							document.getElementById('pesqq').style.display = "block";
+						}
+					}
+					
+					</script>
+						<link href="//www.precode.com.br/SG/scripts/js/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+						<script src="//www.precode.com.br/SG/scripts/js/jquery.js"></script>
+						<script src="//www.precode.com.br/SG/scripts/js/jquery-ui.custom.js"></script>
+						<script src="//www.precode.com.br/SG/scripts/js/modernizr.js"></script>
+						<script>
+						if (!Modernizr.inputtypes.date) {
+						/* get jQuery-ui css */
+						$('', {
+						  rel: 'stylesheet',
+						  type: 'text/css',
+						  href: '//www.precode.com.br/SG/scripts/js/jquery-ui.css'
+						}).appendTo('head');
+						/* get jQuery-ui */
+						jQuery.getScript('//www.precode.com.br/SG/scripts/js/jquery-ui.min.js')
+						/* wait till it's loaded */
+						.done(function() {
+						  /* apply datepicker ui to selected element */
+						  $('input[type=date]').datepicker({
+						  /* Keep the date consistent */
+						  dateFormat: 'yy-mm-dd'
+						});
+					  });
+					}
+			</script>
+	
+	
+		
+	
+	<iframe src="//www.replicade.com.br/SG/lib/push/consulta.php?chave=c55fb76cabdf4273a16455992b6ddc52a8ac1100" style="display:none"></iframe>
+	
+	<title>Siberiano - Área Administrativa</title>
+	
+	
+	<div id="telalateral" style="float:left;min-height:200px;width:500px;display:none;background-color:#FFF;">
+		<div style="position:fixed;float:left;width:500px;border-right:0px solid #000;background-color:#FFF;">
+			<div style="float:left;width:100%;">
+				<div class="btFechar" onclick="poplateralfecha()"></div>
+			</div>
+			<div style="float:left;width:100%;overflow:auto">
+				<iframe id="myIframelat" src="" style="width:100%; height:99%;overflow:hidden;border:0px;"></iframe>
+			</div>
+		</div>		
+	</div>
+	
+	<div id="telaprincipal" style="float:left;width:100%;height:auto;'">
+	
+	<div style="position:fixed;width:100%;background:#00479c;height:50px;float:left; min-width:700px; ">
+	<meta name="theme-color" content="#00479c">
+	<div style="float:left;width:175px;">	
+		<div style="float:left;width:45px;">
+            <a style="cursor:pointer;background: center center no-repeat transparent;background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC );	display: block;	width: 40px;height: 45px;" onclick="mostmenu()">  </a>
+         </div>
+		 <div style="float:left;width:45px;">
+            <a style="cursor:pointer; background: center center no-repeat transparent;background-image: url(&quot;../scripts/lupaico.png&quot;);	display: block;	width: 40px;height: 45px;" onclick="mostpesq()">  </a>
+         </div>
+		 <div style="float:left;width:50px;">
+            <a style="cursor:pointer;background: center center no-repeat transparent;background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAaCAYAAADfcP5FAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWVJREFUeNrs17svBFEUx/E7syMhkRUKEpHoEB2FR5QahUbpEYl4VP4F/4Be4V0IlUajERQKjwgRCQoFkYhCo0AjO74nOYVI2DuzZvYKJ/nsTrI72d/cvffkXi8MQ0M1oR8VJv2SALdYxpNHoGYutlBrilvb6PN5GXEgjFQ3uiRQpXGnqiVQzqFAOd84Vr8i0BFGsZvg7x7jwTbQFZZ01g/i7AeDXGIM7TixDVTyoWGtyVLEBM4LCHKBSXRiURdSJu4cesY8OjCMfcsQb9jBENowI504301BhKd8wQpW0YNxfS/99L1rbGAdB1GHMojTK7CpWjCARp0f0v738Br3vw0KnKSn6m/1of9A+QKFKW7MrAKlNWqebaBWlCUcpkq3zVbLvgELmMJjAqNSg2nUR+lD0ux6cZ/A6NSh/LvGmPnis6xKdZH5egRxpW4k0BwOHQgzKzsJTw+KWd2QFeugeKdbFfMuwAASjEUYA8s3aAAAAABJRU5ErkJggg== );	display: block;	width: 36px;height: 26px;margin-top:10px" onclick="mostsac()">  </a>
+			
+         </div>
+         <div style="float:left;width:30px;">
+            <a style="cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAdCAYAAADLnm6HAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAkFJREFUeNrElj9IHEEUxm+9kzMrKIqc8RL8U1jYRdDWP0WKOyWpbYyNIIIGBG2i6W0sRAtBEMTuJCkMiYUhWJwWgXgQSSpBDfEIUZtwoqd36zfwFp7jjjsXb9eBH7s77918387O3DzDsqyAh60KlINKUA0egwioBU+AGQp427rBEqhQxE9KPDbwDkwB1TQfem1AtFnwVhH764eBevBSEfvzvwZ6QalGXgNYB23FNDAJ1sCChvgn0CL1b4Ic3acDYhsWwBvrZltU5DWAn9btNkfxIXruv4+4yoSbuM0YeH5fcdnEU/DjDnETvAIGPZcUQ9xuK+CbQ/88jRMEH8EXPr6b+KTDgL/BC/BVw5T95iGQoL73ugac3vwItFI8ClIa4iYT1zagEn8m5dUpTPAF1y3FXA04iaeZuJjOJjCgMGF/8zJQAzoKMeD25n1gEERADowwE7tsNwiTH0ActOsacBOPgUswASrABeUMU7ySrfZVinXpGtARz1D/KIllWO4Q5YWlBadlYNxFvFMSe+1gYI9yp6VxXA2Iw2gHnLLDIg3iIMWqGtPl4MnStbHQk00Y2KDj9R84ZuIdVMtlNMaxK57LQg3YNeE2iIELEheGlkEzyHtZrfCiNElXYSRBs5P1ulySC5IesArKwDkw/DQgZmOGLTjDh3rxhgHDL9G7PkH+oQ08YvcmzYhc/ZZSv+nwu7CUG3TQCKt2gUU74Rc9n4ErsA+2KC6ED6j/My3WAOWI9h1E2f/CKS3mJNNJcQPXAgwA7DtxWOLwNmsAAAAASUVORK5CYII=);	display: block;	width: 36px;height: 26px;margin-top:10px" onclick="mostrelatorios()">  </a>
+         </div>
+	</div>
+	
+	<div style="float:left;width:35px;margin-left:12px">
+		<a style="cursor:pointer;background: center center no-repeat transparent;background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAcCAYAAAB/E6/TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAVZJREFUeNpi+P//PwORuOA/BCwlQQ8cszCgAkYgRheDATUorQrErFD2PyD+y0AEYATZBgWmQDwXiLlxqBUGYn4g/gHEz6Biv4E4EojPE7QJ6jUzIH7znzzgR0zQMQHtsgDirVAXkwP+EKMIZNFmIBZhoDEAWVQOCkF6WDQPiOMpsIyRGEWwpLwYSk8HYg48jmKEOugfkvg/UpM3CMgBMTssQQLxNySfNgJxKhCfAuIAJD3PybEIGfAC8RwgZoPydYFYGYjfAvFhJHWsUN+ig/1A3I2ej7Bhuf+Ug3qYefgskgXi71SwrA5bWUcLAIrb70x0sOgFEB+jtY9AKdIdiC8zEciIHBRYAirhPUCWEErenEDsiJR0QXnID4ivQYstQgCk7h4xyRsdd0JT0QFyalhSEgMs4zKTW6jSBYxaNGoRWRaxIWVkkgEpZd0yIDYG4lnkWAQQYAAj/O4CUdHpMQAAAABJRU5ErkJggg==);	display: block;	width: 36px;height: 26px;margin-top:10px" onclick="mostlojas()">  </a>
+	 </div>
+	 
+	<div style="float:left;" onclick="sommenu()" class="some">
+		<a href="../../../SG/scripts/login.php?home=home">
+		<img style=" height:35px;width:147px;margin-top:7px " src="../../SG/images/siberiano.png" class="some"></a>
+	</div>
+	 
+	 <div style="float:right;width:35px; margin-right:10px;">
+		<a href="../../SG/scripts/login.php" style="cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../../SG/scripts/sair.png&quot;);	display: block;	width: 40px;height: 45px;">  </a>
+	</div>
+	
+
+			<div style="float:right;width:35px;">
+			 <a href="../../SG/scripts/Agenda.php">
+              <i style="cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../scripts/agend.png&quot;);	display: block;	width: 40px;height: 45px;"></i>
+            </a>
+				
+			</div> <div style="float:right;width:49px;margin-top:10px;">
+						<a href="../../SG/scripts/ConsultaOS.php" style="cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../images/icone_os.png&quot;);display: block;	width: 44px;height: 24px;">  </a>
+					</div> <div style="float:right;width:43px;margin-top:5px;margin-right:5px;">
+						<a href="../../SG/chat/listaAtendimento.php" style="cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../images/chatn.png&quot;);display: block;	width: 43px;height: 37px;">  </a>
+					</div>
+		
+		<div style="float:right;width:35px; margin-right:10px;">
+			<div style="float:left;width:30px;">
+            <a style="cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAkCAYAAABxE+FXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjIzMTNBQzUyNDAzMTFFOTg5NzJCRUMzMkM1QTA0ODIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjIzMTNBQzYyNDAzMTFFOTg5NzJCRUMzMkM1QTA0ODIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMjMxM0FDMzI0MDMxMUU5ODk3MkJFQzMyQzVBMDQ4MiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMjMxM0FDNDI0MDMxMUU5ODk3MkJFQzMyQzVBMDQ4MiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtmmVP4AAAIOSURBVHjaxJfPKwRhGMffWWu1fuRHcSDaKNlQq0SKlHLZUpT25OKiLW5CTg5yEeXuT3DiLiVC2iW/ThwkaqOw68dGdnxfvYfpbcbM+87szFOfmqd53+c7877PPPM+iqqqBDYA1kADyIIccd4UEAQpMAs2FYgP4WKLuG/jVPwYF50eiF9R8RdclAtOvAQ74BFUgn7QIRgjTSCeVq1bErTTPNGhCewKxBIS3zAQ5Vl3WvwCKJxIAIRAUOcB9pwUH+aCj4FXdi8LJrn7fU6J33CBRw3GTXDjEmbiPgtZmeT8uMG4Kc5PmAX2WxBvBcugmI03qgk1IAC+mP/hhHiYYWZnGmHCSvW/5nOwYi1wqzDolngUHGj8JVBqOkuwwulZlMvy6XxUOD2LccIz+SqvZuU2Ljg/rfw9ASFlEvvcC/Y1mX0NCgXmZ2QT7h4cavyYoLCtbKfiPxo/IhPELylODxAjrKK9gTapQ52NPbdrGR/x0GSXPceO2PQ4TM/eRaDArYQ7YVtVBUrYYZK4Jf6teXvC/c3yLq6a+Jb3XKY1qgdzbJ8/QbNM3tBP7QgXXR4k+zld9kWPvrQVhXWp3WAVhAy6VJpQdaDCUhtEyB2rfnpd6gOYB9vEYhdCaQRPJr9JeoaPWI0pIk6pBrcGws+sXyP5EqfUghQn/A5aRGPJiPMrIPzGdsUpYXAKemRj/AowAAF53+MVglAYAAAAAElFTkSuQmCC);	display: block;	width: 31px;height: 36px;margin-top:8px" onclick="mostraajuda()">  </a>
+         </div>
+				</div>
+				<div id="mostsacdiv" class="some" style="left:0;height:420px;width:350px;position:fixed;display:none;margin-top:40px;background-color:#00479c;">
+					<style>
+						.linhame{float:left;width:300px;height:30px;line-height:30px;margin-left:30px; border-radius:3px;}
+						.linhame:hover{background-color:#ff8a00}
+						.lin1a{float:left;width:60%; font-size:14px; color:#FFF; text-align:right;}
+						.lin1b{float:left;width:39%;font-size:16px; color:#FFF;text-indent:15px;font-weight:800}
+					</style>
+					<div class="linhame" style="margin-top:30px;">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/ResponderEmails.php">
+							<div class="lin1a">Total de e-mails:&nbsp;</div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/Ocorrencia.php">
+							<div class="lin1a">Ocorrências:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/OcorrenciaExtra.php?v=11">
+							<div class="lin1a">Tickets MarketPlaces:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/OcorrenciaMensageriaMarketplace.php?v=11">
+							<div class="lin1a">Mensageria MarketPlaces:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/MarketPlace/MercadoLivre_V2/views/reclamacoes/menuReclamacoes.php">
+							<div class="lin1a">Reclamações M.Livre:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/OcorrenciaMLpedido.php?v=11">
+							<div class="lin1a">Mensageria Mercado Livre:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/OcorrenciaML.php?v=11">
+							<div class="lin1a">Pergunta Produto M.L.:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Produto/cadastroV3/produto.php">
+							<div class="lin1a">Produtos a Cadastrar:&nbsp; </div><div class="lin1b"> 0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/PosVenda/RelacaoQuestionario.php">
+							<div class="lin1a">Pós-Venda:&nbsp;</div><div class="lin1b">0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/OcorrenciaWhatsapp.php">
+							<div class="lin1a">Whatsapp:&nbsp;</div><div class="lin1b">0</div>
+						</a>
+					</div>
+					<div class="linhame">
+						<a href="//admSiberiano.replicade.com.br/SG/Manutencoes/AgendaAcompanhamento/index.php">
+							<div class="lin1a">Agenda:&nbsp;</div><div class="lin1b">0</div>
+						</a>
+					</div>
+	
+				</div>
+				
+				<style>
+					.ssc:hover{background-color:#ff8a00;}
+				</style>
+				
+				
+
+				<style>
+				#mostlojas::-webkit-scrollbar { width:12px; background:transparent; } 
+				#mostlojas::-webkit-scrollbar-track { background: rgba(0,0,0,0.0); }
+				#mostlojas::-webkit-scrollbar-thumb { border-radius:10px;background: rgba(0,0,0,0.2);  }
+				</style>
+					<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+					<script type="text/javascript" src="//www.precode.com.br/SG/jsnew.js"></script>
+					<div id="mostlojas" class="some" style="border-radius:5px;height:560px;width:320px;overflow:auto; position:fixed;display:none;margin-top:47px;background-color:#00479c;left:2px;">
+						
+						<p><input type="text" class="input-search" alt="lista-clientes" placeholder="Buscar por loja" style="width:280px; margin-left:20px;"></p>
+						
+						<div id="mostlojas" class="some" style="height:480px;width:280px; margin-left:20px; border-radius:5px; overflow:auto; position:fixed; background-color:#fff ">
+							<table class="lista-clientes" style="float:left; width:240px; margin-left:15px; margin-top:10px;  " cellpadding="0" cellspacing="0">
+								<tbody>
+									
+													 <tr class="trhref" url="//admsiberiano.replicade.com.br/SG/scripts/login.php?sess=U2liZXJpYW5v&amp;esquema=Siberiano|siberiano&amp;chave=Y2FkYXN0cm8uZXZvbHVzb20xIChTaWJlcmlhbm8p&amp;token=">
+													 	<td width="40" height="40"><img style="width:18px; height:18px;margin-top:0px;margin-left:5px; " src="../../SG/images/icones/siberiano.png"></td>
+														<td style="color:#2c2c2c;font-size:12px;">Siberiano
+														<br><b style="color:#ccc; font-size:11px; text-align: right ">Evolusom</b></td>
+														<td width="20" style="color:#2c2c2c"><div class="iconativo"></div></td>
+														<td width="20" style="color:#2c2c2c"><div class="botaoChatON"></div></td>
+														<td width="35" style="color:#2c2c2c;text-align: center; color:#fa3e3e; font-weight: 800 "></td>
+													</tr>
+													 <tr class="trhref" url="//admsiberiano2.replicade.com.br/SG/scripts/login.php?sess=U2liZXJpYW5v&amp;esquema=Siberiano2|siberiano2&amp;chave=Y2FkYXN0cm8uZXZvbHVzb20xIChTaWJlcmlhbm8p&amp;token=">
+													 	<td width="40" height="40"><img style="width:18px; height:18px;margin-top:0px;margin-left:5px; " src="../../SG/images/icones/siberiano2.png"></td>
+														<td style="color:#2c2c2c;font-size:12px;">Siberiano2
+														<br><b style="color:#ccc; font-size:11px; text-align: right ">Evolusom</b></td>
+														<td width="20" style="color:#2c2c2c"><div class="iconativo"></div></td>
+														<td width="20" style="color:#2c2c2c"><div class="botaoChatON"></div></td>
+														<td width="35" style="color:#2c2c2c;text-align: center; color:#fa3e3e; font-weight: 800 "></td>
+													</tr>
+								</tbody>
+							</table>
+							<div style="float:left;height:48px;width:100%;"></div>
+						</div>
+					</div>
+					<script>
+						$('body').on('mousedown', 'tr[url]', function(e){
+							var click = e.which;
+							var url = $(this).attr('url');
+							if(url){
+								if(click == 2 || (click == 1 && (e.ctrlKey || e.metaKey))){
+									window.open(url, '_blank');
+									window.focus();
+								}
+								else if(click == 1){
+									window.location.href = url;
+								}
+								return true;
+							}
+						});
+					</script>
+						
+				<div id="mostraajuda" class="some" style="right:0;height:120px;width:300px;position:fixed;display:none;margin-top:40px;background-color:#00479c;right:100px;">
+
+					<table class="tabela3 some" cellpadding="0" cellspacing="0">
+						<tbody><tr><td bgcolor="#00479c" height="120" colspan="2"><center>
+							<table cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="https://www.precode.com.br/precodehelp/index.html" target="_blanck">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../images/percodehelp.png&quot;);	display: block;	width: 70px;height: 31px;margin-top:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Precode Help</p>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../../../SG/scripts/OS/?filtro=1">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(&quot;../images/chamadosuporte.png&quot;);	display: block;	width: 70px;height: 31px;margin-top:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Chamados de Suporte</p>
+										</a>
+									</td>
+								</tr>
+								</tbody></table>
+						</center></td>
+					</tr>
+					</tbody></table>
+
+				</div>	
+				<div id="mostrelatorios" class="some" style="left:0;height:380px;width:300px;position:fixed;display:none;margin-top:40px;background-color:#00479c;left:100px;">
+
+					<table class="tabela3 some" cellpadding="0" cellspacing="0">
+						<tbody><tr><td bgcolor="#00479c" height="380" colspan="2"><center>
+							<table cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/ListaOcor.php">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAx1JREFUeNqsl1uIjVEUx89tOJw5hsltLshccDqDzgxjErkPcmmaNB6UmQcpHnjwihdTknggyYOSh1GKmmEIeUEJmWZIySSNJCN1xmguaM7nv/I/tfvO/r69R1b9+i5n7/3fe317r7VO0HGcgKVNAWvAIhAF/eAF6AbHwH7w23KsCEhHLBtvAKdAjev9ALgKToM+EANjFuPJJA/YiC8H10Gh5rep4BCvzWAHKDV4YAJ4CBIm8TzQ6iGs2l7QAZ6Br8DvW4bBkHjJJL6U39nGmsBtsIuTzvAacrWT/XJHvGMSrwYTLcWXgOngAcjnO/HCsKudTGYQtJjESwP2JsJxUMmJiOvbeCp0FvITlxnOG4e4CM8GneAe3/0KGAS8bC53r63J59nNnT5C/I5dxk/8OxmPfVSCSJgENQHm766XCOfDPpBx7KwLlIFL4BXoAS/BQY5VD7r5XtoOBg3hVWbdbun+LeApOMIVi8sPg4s8WvfBI7aRT5Q2rVxYBX4aVt0Jwpq+HVx9mh4Jqr/biAsnfYS/gaRHv1tsI8Ih9++24kKbRngI7PTpcxdc9vCKUTwOVoPNoAC0gk8UfQLWg2LQCMo1q6sAUa/xI64kIrE8AarAYpAEveAoj90J8AXUgvPM55JGS8A5RrM34DWvXWDUc4tyFvngGhjVuPasMtsi8J7vjyvvZ4ABTd8+0OS18uxNo8+G6gUxpVMLeExBNR54WY+X67M3Z3w6Zxggsm0ng4RroBs+/YfBAp14iPE9ZQg0W5XnEtfzHLDCp/8kr/FDHKzMEL3WggLeJ1k4RPlcxzFMpZhWvNKic5K7P8BVSL6exedtFqG3hiE3RzylZBq/Wm4j72vpyiSv6yzEy3WFiYgvs0yXm1hILlQ8sNKy2ikGFTrxaktx+Tx7wDTFAw2GgkStWHM2nWSZjCbh62yMBeFMDvaDVUuh5eQlrW5Xy2qZ9QXwznL2RcrGiVsKjzCPt+fU80rYbAA3nf9nnxmCUyDPNqs1M3xm/lG0H1wBVaY07VVGxXiu67hR5vP/mPtIOsxakunegufkg80m+CPAABP8kFk8RK1qAAAAAElFTkSuQmCC);	display: block;	width: 45px;height: 31px;margin-top:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Lista Ocorrência</p>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/ListaPed.php">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAeCAYAAACmPacqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxdJREFUeNrM11tIFFEYB/Bd3UVRu9iNrKCXwsjMNAvE9KEi0vRFLLvSQ9RL2OUhhCJBXyuoJJRaQnqQLi+WUakEShGEmXTPoAsVFt0sRK11a/of+C+cjt+4s7W7dODHzpxzZuab2ZlvvnFbluUS2lIohSUwHYbhObTCZeh3RaOpYDSz4Zz1Z/turL+CbcZ2EaGvZPNAqj2GSsiCFJgJRdCoBXUkWsGkwUse5Bgka5MqYJa2XgivObcqGsEEz7hemNQDZUZfJvSDHzIiGcw8CPDKJAuTHsBaoX8PT8AXqWDicA8XQzz4YFC4xxM5brZGPlWlnPPPTQWTw+VOYXwGTIF0Yewr3IZpTAVTIxFMcCefhPHNMBEqYbIw3sdflXseQb3NVXQczACXk4Tx69DNQE6B2xgfp/2qk9oEE/42GA/0cjkb7hrj3fwL9sJhaICdEAAvZBnz/SqPQgKUwHj4pY2rk/nJv/eZlIEL+FTcDHG3b4UOSOJ6sTW6fQQv1Fpjty+QLz3aHrjFSU7TvMrK92yCSYQLVuj2hsl2VNLLg2EYgvIQgaRCi80BgsE0Gf3VsJo2cJ5qVyBOejft1jZugIXgNoLYyPeWFWYwK4wTKtPGDkrB5Bg7GIH70Ao3oM/BpbcLpkS4wnUcCwSD9Wj3coLwpGVSNFoVLINFcEItx7li04Zs+sqZyVWGX+eJUTDrYb6RnVU++gEfmOVzYxXMdgdzvLH6mxxVwP9TMC6nf9MTaIN3MAfWQFoYx+nhS/czLGANlTrW10GeTe6oMZKfMgnOOsgzIyzspa+QdmPbM/qEfGHndRzLhWbohtPaO6VTeAGqYM5zfR/nrYJr0AVHWd6mGNm8SQ8m3dixn6+AufDNGHvIgxYa/S8gHk7CAJcLmGX11s5jbtH6Dun3TC/r2cUsut6yxj3AukRvGbxvmmE/a2BV41xlvVILl7i8S6j+VrJOUtvXsMpsclIu+GzupR0Oy402m+2LpK+DUK1F6FOZs8Phk3RR6HsPd0J9a9up5kebxa/JijC+h1TldxwGuf1TWC7N/S3AAHDUNtJKsXYpAAAAAElFTkSuQmCC);	display: block;	width: 45px;height: 30px;margin-top:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Pedidos a Enviar</p>
+										</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/IndiceTransportadora/IndiceTransportadoraPeriodo.php">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAfCAYAAAD9cg1AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdhJREFUeNq01k8og2EcB/D3fWdr4bQdUENxQFqcaHN0lUI4Oyq1RA4cHJe44GokWjm5rBwdCGWLkpRwcFAKi9XEmtf30fNqrf2e53m986tPa+9+f95tz/s+r26apiYJH3RBJzSCFzJwBylIwjtZzQYQmmEZHkxxXMEs+Er1oZpH4MW0F7fQLxtQAWums5gWDXDa3IqJUgPGJUU7MAphGIR1+CRyczzvd0AA0kRyFkaI/6oXnoi6JLitxAXBmU8KVhozDF9E7RBL8MM9kcCOV0oGMCmiPmHgUghBPXGZnEFWk8cJcTxk8CuUipymFlSejw0ICArbwaUwoIP6wOD3FipaYUDSnP3EPaIBr5IGK4KfsQli4BYNuJEMqIN9mIMg1EILROAQ2kTFOpZSN14PRGdREHn+javBo5CfZt/gHC4UV4uL7w8exfxTNuAD4tr/xJbOdzQ/XEJNGZtfs8Vh8DfPEC3z2c//bKUF9xM3HJdpP0hQG04QMg6bP0KDaE8ec9A8D30qm/7iHwfMqD5VsNUVt9l81c5jC+Plf5ZKbPKTsjWAqYI9SfNtcFE9NIXtkG2Zu0TzmKi56gDrGtkoar6kUqs6wBKFN5hSrdEVnq6LIwxHqsnfAgwAfmMX+vcxmqwAAAAASUVORK5CYII=);display: block;	width: 24px;height: 31px;margin-top:10px;margin-left:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;margin-left:12px">Índice  de Entrega</p>
+										</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/IndiceEnvio.php">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAmZJREFUeNrEl09IVEEcx3dXycwg0i7B0iYRBBGmdRBPBhsRm0QIIRFFEET0/yCEgZcO2SGIpUtB2C5EFEElEQQWQhphRAV1SaNDoViLEWUkq02fiVl6TfPem/d8bj/4wO7Mb36/75uZ93szcSFE7D9ZGnbEpIAy0wJ3hLJyJm6EazAr/thsORKvgcswLf61N5XzuMYpOA77YbGLz+B8CFgOh+Ag1Kq2IkxAUvPtj3Kqa6ELxrRp/ghn5HRr7d8hFUXiRXAE3hnW+Dlsh6eGvicQn0viBbAPXguzXYdV8Milv+d3DQqROAEd8Ey4WzdUwwMPn81hBLTBkEfQz9CufO95+Ml9sTSIgE1wX3jbC1in/G/6+N4txfZL3Ay3hL/JCrdEjem18D/hJ6ABrsKMTyBZVk86xp23SC7HNLkJWA0X4YdFoHHIOMaeFnY2AlW6gBVwDr5YBhlSYkvjO4W99TofOqbW41OAAJegxhHkgAhmu3UB7y0HymU5rC3ZLvgZILksvyt1AfJzmYUPHgNlmW011ITpgE8/LMuvLqBEHeyFfvgGRZiAK5DUkksxX0VwO6u/cW6vYQrWwjJD33ooiHC2xVaAFzdCJi+oT/Zf8RIhDhyDIQ8qwzCpN9oIaIBuaFb/s9AKeVNAD3tobLWY8mOOaRyAPY4+uTmPqt3tV343muLbCJCHiikt4GNtPRPqi5lTn2Td3sLCsALcNl67xxskS/NLh2/eLbatgLRhSjdYHNm2wm3YOVcBlfDKIeBCVKdp29dwBnLq9yiciuwWEUBtvSq/26K8usUDXM8rIAN9UV6jfgkwAEj0w229ZlP7AAAAAElFTkSuQmCC);	display: block;	width: 45px;height: 30px;margin-top:10px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Índice de Envio</p>
+										</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/IndiceReverso.php">
+										
+										<img src="../images/iconesPlace/trans.png" style="float:left;cursor:pointer; display: block;	width: 37px;height:32px;margin:5px 4px 0 5px">
+										<p style="font-size:14px;float:left;width:150px;text-align:left;">Índice Reversa</p>
+										
+										 
+										</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../Pedido/IndicePedidosFaturados.php">
+										<img src="../images/iconesPlace/package.png" style="float:left;cursor:pointer; display: block;	width: 35px;height:35px;margin:8px 2px 0 5px">
+										
+										<p style="font-size:14px;float:left;width:150px;text-align:left;">Situação dos Pedidos</p>
+
+										</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="tdnov ssc" style="height:50px;">
+										<a href="../scripts/OutrosIndicadores.php">
+
+										<div style="float:left;cursor:pointer;background: center center no-repeat transparent;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAklJREFUeNrEl01IFVEYhueOmQSpEKmIZNnKDEtclWFFuAlpZQvbtsiNtDAXbYpsEYi1klpesF3QJttqWoq7SxalBN67iLCMDEKloJ/T88E5MJzO3DvenJkXHph7v+F852fOe76TUUp5EVUP5+AMtEMj7IUMbMJHWILn8AxWI7UqHSjBEbgPn1R0rUMWOkq1XyxYBSOwocrXD7gHNdvtwGGYUzunHLRH7cBRKKidlyzhyVIdaI4pudEatIV1YDe8UPHrFVSbvH5gQ1yDbi9+HYMR8yOjfaAZ3kC1l4x+QqfkNDMwmGByUSUMmRmQxMvQ5CWrb9AqM3AqheSiWujxtbenpbO+/iptfYcbenb6IOd455GMQBqBrCMuB9Ml6IJhPeW22mQvvnTs1SuWQe2DfCD+xOGgWcv1DljxPvht5SlI4J315+egUQS4G3jngiPeFYhPOOI+rNjO6DumpQL8kK3jeo4a93Xb/9QDOccSDFu9l+n8EIhPQYX1zuNA/Kvt+XAZ/lh58p5eT1u/YBx6YcCxTKJp6IeLMOmIv4ercB5GdW1ga146cFulpweyLrMp+sCMWPEeHt5CS8LJvxgrFtN5mMLoxcjWzXHcoI/j/Qkl34LjkDf7fQ1uJTj6MUlu3wvEqZ4m8OXP65LfWZTW6ZotLhV04Vu0LD8IizEkX3G4Y+jFpC7EIcvVlD3yKFczYRBW/yOx3BGvw65y7oaGRrgZch4UW+s7cKhU+5ltXM/FMU/AaejQdWSNjm3q6/hrmIMF2IjS6F8BBgBoNPKLLARIPgAAAABJRU5ErkJggg==);	display: block;	width: 45px;height:32px;margin-top:8px"></div><p style="font-size:14px;float:left;width:150px;text-align:left;">Outros Indicadores</p>
+										</a>
+									</td>
+								</tr>
+								
+
+							</tbody></table>
+						</center></td>
+
+
+					</tr>
+					</tbody></table>
+
+				</div>
+					<div id="pesqq" class="some" style="left:0;height:350px;width:300px;position:fixed;display:none;margin-top:40px;background-color:#00479c;">
+						<div style="margin-left:auto; margin-right:auto;height:130px; width:90%;margin-top:30px; border: 1px solid rgba(255, 255, 255, .3);border-radius:4px;">
+							<div style="float:left;height:20px;margin-left:15px;width:130px;margin-top:-10px; color:#FFF;background:#00479c;font-weight:800;border-radius:3px;text-align:center">Lista de Pedidos:</div>
+
+							<div style="height:30px;width:100%;margin-top:20px;">
+								<div style="float:left;color:#FFF;width:60px;margin-left:10px;line-height:30px;"><b>Buscar:</b></div><form action="../../../SG/Pedido/Lista.php" method="post"><b>
+								<div style="float:left;"><input type="text" name="entrada" maxlength="40" size="20" style="border:1px #7d8084 solid;font-size: 14px;background:#FFFFFF;height:30px;text-align:center;color:#353232;_margin-top:0px;width:185px"></div>
+							</b></form></div><b>
+							<div style="height:30px;width:100%;margin-top:20px;">
+								<div style="float:left;color:#FFF;width:60px;margin-left:10px;line-height:30px;"><b>Por:</b></div><b>
+								<div style="float:left;">
+											<select name="tipo" style="border:1px #7d8084 solid;font-size: 14px;background:#FFFFFF;height:30px;text-align:center;color:#353232;_margin-top:0px;width:130px">
+												<option value="1">Pedido Site</option>
+												<option value="2">Nota Fiscal</option>
+												<option value="16">Nota Fiscal Coleta</option>
+												<option value="3">Pedido ERP</option>
+												<option value="4">CPF ou CNPJ</option>
+												<option value="5">Nome</option>
+												<option value="25">Apelido</option>
+												<option value="6">E-mail</option>
+												<option value="11">Protocolo Correio</option>
+												<option value="15">Protocolo Atendimento</option>
+												
+											 <optgroup label="Marketplace" style="font-weight: 800">
+													<option value="27">Amazon</option>
+													<option value="8">B2W</option>
+													<option value="13">Buscapé</option>
+													<option value="35">BestOff</option>
+													<option value="18">Carrefour</option>
+													<option value="23">Cissa Magazine</option>
+													<option value="26">Colombo</option>
+													<option value="37">Dafiti</option>
+													<option value="34">iFood</option>
+													<option value="31">Kabum</option>
+													<option value="29">Leroy Merlin</option>
+													<option value="28">Madeira Madeira</option>
+													<option value="12">Magazine Luiza</option>
+													<option value="14">Marabraz</option>
+													<option value="17">Web Continental</option>
+													<option value="10">Mercado Livre</option>
+													<option value="30">NetShoes</option>
+													<option value="36">Novo Mundo</option>
+													<option value="32">Pão de Açúcar</option>
+													<option value="38">Rappi</option>
+													<option value="22">Ricardo Eletro</option>
+													<option value="21">ShopFacil</option>
+													<option value="33">Supermercado Now</option>
+													<option value="7">Via Varejo</option>
+													<option value="39">Vivo</option>
+													<option value="20">Zoom</option>
+													<option value="9">Walmart</option>
+											</optgroup>
+											</select>
+										<input type="submit" value="ok" class="bt popCarregando" style="height:30px;margin-left:10px;">
+								</div>
+							</b></div><b>
+						</b></b></div><b><b>
+					<div style="margin-left:auto; margin-right:auto;height:130px; width:90%;margin-top:30px; border: 1px solid rgba(255, 255, 255, .3);border-radius:4px;">
+						<div style="float:left;height:20px;margin-left:15px;width:170px;margin-top:-10px; color:#FFF;background:#00479c;font-weight:800;border-radius:3px;text-align:center">Manutenção Produto:</div>
+							<div style="height:30px;width:100%;margin-top:20px;">
+								<table cellpadding="0" cellspacing="0">
+								<tbody><tr>
+									<td height="45">
+										<form action="../../../SG/Produto/Margem.php" method="post">
+											</form></td><td class="tdnov"><b>Preço:&nbsp; </b></td><td><input type="number" name="IDproduto" value="" size="5" class="buscar4" style="border:1px #7d8084;width:100px;min-width:100px;"> &nbsp;<input type="submit" value=" ok " class="bt"></td>
+										
+									
+								</tr>
+								<tr>
+									<td height="10">
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td height="30"><form action="../../../SG/Produto/cadastroV3/produto.php" method="post">
+											</form></td><td class="tdnov"><b>Cadastro:&nbsp; </b></td><td><input type="number" name="codigopai" value="" size="5" class="buscar4" style="border:1px #7d8084;width:100px;min-width:100px;"> &nbsp;<input type="submit" value=" ok " class="bt"></td>
+										
+									
+								</tr>
+			
+								</tbody></table>
+							</div>
+					</div></b></b></div><b><b>
+	<script src="//www.precode.com.br/SG/scripts.js"></script>
+	
+		<style>
+			.mm-listview{background:#00479c}
+			.mm-panel{background:#00479c}
+			.mm-navbar{background:#00479c}
+			.listview-icons li:hover{background:#ff8a00;}
+		</style>
+
+	
+	<script type="text/javascript" src="//www.precode.com.br/SG/scripts/menujs1.js"></script>
+		<link type="text/css" rel="stylesheet" href="//www.precode.com.br/SG/scripts/menupr.css?a">
+		
+
+		 <script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+						"offCanvas": false,
+						"counters": true,
+						"iconPanels": true,
+						"extensions": [
+                  "theme-dark"
+               ]
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							return false;
+						}
+					);
+			});
+			
+		</script>
+				<div id="menups" style="left:0;height:580px;width:370px;min-height:300px;position:fixed;display:none;margin-top: 45px;background:#00479c;border:0px;border-radius:5px;" class="mm-wrapper">
+					<nav2 id="menu" style="width:100%;background:#00479c;" class="mm-menu mm-theme-dark mm-iconpanel"><div class="mm-panel mm-hasnavbar mm-opened mm-current mm-iconpanel-0" id="mm-0"><a href="#mm-0" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-title">Menu Principal</a></div><ul class="listview-icons mm-listview">
+								<li><em class="mm-counter">4</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-1" data-target="#mm-1"></a><span><i class="fa fa-pie-chart"></i> &nbsp; Relatórios </span>
+									
+								</li>
+								<li><em class="mm-counter">8</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-5" data-target="#mm-5"></a><span><i class="fa fa-rocket"></i> &nbsp; Marketing </span>
+									
+								</li>
+								<li><em class="mm-counter">1</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-14" data-target="#mm-14"></a><span><i class="fa fa-cog"></i> &nbsp; Configurações </span>
+									
+								</li>
+								<li><em class="mm-counter">4</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-16" data-target="#mm-16"></a><span><i class="fa fa-truck"></i> &nbsp; Logística </span>
+									
+								</li>
+								<li><em class="mm-counter">9</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-21" data-target="#mm-21"></a><span><i class="fa fa-dropbox"></i> &nbsp; Produto </span>
+									
+								</li>
+								<li><em class="mm-counter">31</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-27" data-target="#mm-27"></a><span><i class="fa fa-shopping-bag"></i> &nbsp; Marketplace </span>
+									
+								</li>
+								<li><em class="mm-counter">2</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-58" data-target="#mm-58"></a><span><i class="fa fa-comments-o"></i> &nbsp; SAC </span>
+									
+								</li>
+								<li><em class="mm-counter">5</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-60" data-target="#mm-60"></a><span><i class="fa fa-shopping-cart"></i> &nbsp; Pedidos </span>
+									
+								</li>
+								<li><em class="mm-counter">0</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-66" data-target="#mm-66"></a><span><i class="fa fa-user-circle"></i> &nbsp; Usuários </span>
+									
+								</li>
+								<li><em class="mm-counter">1</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-67" data-target="#mm-67"></a><span><i class="fa fa-sliders"></i> &nbsp; Precode </span>
+									
+								</li>
+								<li><em class="mm-counter">1</em>
+									<a class="mm-next mm-fullsubopen" href="#mm-69" data-target="#mm-69"></a><span><i class="fa fa-shopping-cart"></i> &nbsp; Compras </span>
+									
+								</li>
+			</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-1"><a href="#mm-1" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Relatórios </a></div><ul class="mm-listview">
+										<li><a class="popCarregando" href="../../../../../../../SG/consulta/gerenciador/index.php" target="_self" style="color:#FFF"><span><i class="fa fa-file-text-o"></i>&nbsp; Gerenciador de Relatórios <span></span></span></a></li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-2" data-target="#mm-2"></a><span><i class="fa fa-binoculars"></i> &nbsp; Gerencial </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-3" data-target="#mm-3"></a><span><i class="fa fa-archive"></i> &nbsp; Log </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-4" data-target="#mm-4"></a><span><i class="fa fa-cubes"></i> &nbsp; Vendas </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-2"><a href="#mm-2" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-1" data-target="#mm-1"></a><a class="mm-title" href="#mm-1"> &nbsp; Gerencial </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-3"><a href="#mm-3" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-1" data-target="#mm-1"></a><a class="mm-title" href="#mm-1"> &nbsp; Log </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-4"><a href="#mm-4" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-1" data-target="#mm-1"></a><a class="mm-title" href="#mm-1"> &nbsp; Vendas </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-5"><a href="#mm-5" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Marketing </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-6" data-target="#mm-6"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Anunciantes </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-7" data-target="#mm-7"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Banners </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-8" data-target="#mm-8"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Busca e Termos </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-9" data-target="#mm-9"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Categoria </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-10" data-target="#mm-10"></a><span><i class="fa fa-envelope-open"></i> &nbsp; E-mail </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-11" data-target="#mm-11"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Ofertas </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-12" data-target="#mm-12"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Produto </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-13" data-target="#mm-13"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Reconquistar Cliente </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-6"><a href="#mm-6" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Anunciantes </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-7"><a href="#mm-7" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Banners </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-8"><a href="#mm-8" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Busca e Termos </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-9"><a href="#mm-9" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Categoria </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-10"><a href="#mm-10" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; E-mail </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-11"><a href="#mm-11" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Ofertas </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-12"><a href="#mm-12" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Produto </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-13"><a href="#mm-13" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-5" data-target="#mm-5"></a><a class="mm-title" href="#mm-5"> &nbsp; Reconquistar Cliente </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-14"><a href="#mm-14" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Configurações </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-15" data-target="#mm-15"></a><span><i class="fa fa-home"></i> &nbsp; Lojas </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-15"><a href="#mm-15" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-14" data-target="#mm-14"></a><a class="mm-title" href="#mm-14"> &nbsp; Lojas </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-16"><a href="#mm-16" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Logística </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-17" data-target="#mm-17"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Auditoria de Frete </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-18" data-target="#mm-18"></a><span><i class="fa fa-map-marker"></i> &nbsp; Configurações de Frete </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-19" data-target="#mm-19"></a><span><i class="fa fa-map"></i> &nbsp; Mapa de Carga </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-20" data-target="#mm-20"></a><span><i class="fa fa-pie-chart"></i> &nbsp; Relatório </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-17"><a href="#mm-17" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-16" data-target="#mm-16"></a><a class="mm-title" href="#mm-16"> &nbsp; Auditoria de Frete </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-18"><a href="#mm-18" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-16" data-target="#mm-16"></a><a class="mm-title" href="#mm-16"> &nbsp; Configurações de Frete </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-19"><a href="#mm-19" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-16" data-target="#mm-16"></a><a class="mm-title" href="#mm-16"> &nbsp; Mapa de Carga </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-20"><a href="#mm-20" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-16" data-target="#mm-16"></a><a class="mm-title" href="#mm-16"> &nbsp; Relatório </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-21"><a href="#mm-21" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Produto </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">3</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-22" data-target="#mm-22"></a><span><i class="fa fa-pencil-square-o"></i> &nbsp; Cadastro </span>
+									</li>
+										<li><em class="mm-counter">3</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-23" data-target="#mm-23"></a><span><i class="fa fa-filter"></i> &nbsp; Consultas </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-24" data-target="#mm-24"></a><span><i class="fa fa-hashtag"></i> &nbsp; Grades </span>
+									</li><li><a class="popCarregando" href="../../../../../../../SG/Manutencoes/imagemextra.php" target="_self" style="color:#FFF"><span><i class="fa fa-file-image-o"></i>&nbsp; Imagens Extras <span></span></span></a></li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-25" data-target="#mm-25"></a><span><i class="fa fa-download"></i> &nbsp; Importação Massiva </span>
+									</li>
+										<li><em class="mm-counter">1</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-26" data-target="#mm-26"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Kits </span>
+									</li><li><a class="popCarregando" href="../../../../../../../SG/Produto/precificacao/LiberacaoPreco.php" target="_self" style="color:#FFF"><span><i class="fa fa-money"></i>&nbsp; Liberação de Preço <span></span></span></a></li><li><a class="popCarregando" href="../../../../../../../SG/Produto/Margem.php" target="_self" style="color:#FFF"><span><i class="fa fa-money"></i>&nbsp; Manutenção Preço <span></span></span></a></li><li><a class="popCarregando" href="../../../../../../../SG/MarketPlace/Configuracoes/ProdutoMarketplace.php" style="color:#FFF"><span><i class=""></i>&nbsp; Remover Produto Marketplace <span></span></span></a></li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-22"><a href="#mm-22" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-21" data-target="#mm-21"></a><a class="mm-title" href="#mm-21"> &nbsp; Cadastro </a></div><ul class="mm-listview"><li><a class="popCarregando" href="../../../../../SG/Produto/CadastroAmbiente.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Ambientes/Kits <span></span></span></a></li><li><a class="popCarregando" href="../../../../../SG/Produto/Casadinha.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Casadinha <span></span></span></a></li><li><a class="popCarregando" href="../../../../../SG/Produto/CadastroNovo.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Produto <span></span></span></a></li>
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-23"><a href="#mm-23" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-21" data-target="#mm-21"></a><a class="mm-title" href="#mm-21"> &nbsp; Consultas </a></div><ul class="mm-listview"><li><a class="popCarregando" href="../../../../../SG/Produto/ProdutosAcadastrar.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Produtos Para Cadastrar <span></span></span></a></li><li><a class="popCarregando" href="../../../../../SG/consulta/ProdutoVsMarkeplace.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Produto x Marketplace <span></span></span></a></li><li><a class="popCarregando" href="../../../../../SG/consulta/statusProduto.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Situação Produto <span></span></span></a></li>
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-24"><a href="#mm-24" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-21" data-target="#mm-21"></a><a class="mm-title" href="#mm-21"> &nbsp; Grades </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-25"><a href="#mm-25" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-21" data-target="#mm-21"></a><a class="mm-title" href="#mm-21"> &nbsp; Importação Massiva </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-26"><a href="#mm-26" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-21" data-target="#mm-21"></a><a class="mm-title" href="#mm-21"> &nbsp; Kits </a></div><ul class="mm-listview"><li><a class="popCarregando" href="../../../../../SG/Produto/kit/dadosKit.php" style="color:#FFF"><span><i class=""></i>&nbsp; Kits Cadastrados <span></span></span></a></li>
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-27"><a href="#mm-27" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Marketplace </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-28" data-target="#mm-28"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; allFront 1P </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-29" data-target="#mm-29"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Amazon </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-30" data-target="#mm-30"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; B2W </span>
+									</li>
+										<li><em class="mm-counter">1</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-31" data-target="#mm-31"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; B2W FOOD </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-32" data-target="#mm-32"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; BestOff </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-33" data-target="#mm-33"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Buscapé </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-34" data-target="#mm-34"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Carrefour </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-35" data-target="#mm-35"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Cissa Magazine </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-36" data-target="#mm-36"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Colombo </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-37" data-target="#mm-37"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Compra Certa </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-38" data-target="#mm-38"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Dafiti </span>
+									</li><li><a class="popCarregando" href="../../../../../../../SG/MarketPlace/Configuracoes/produtoDePara.php" style="color:#FFF"><span><i class="fa fa-recycle"></i>&nbsp; De Para Produtos <span></span></span></a></li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-39" data-target="#mm-39"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; iFood </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-40" data-target="#mm-40"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Kabum </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-41" data-target="#mm-41"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; LeroyMerlin </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-42" data-target="#mm-42"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Ltm </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-43" data-target="#mm-43"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Madeira Madeira </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-44" data-target="#mm-44"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Magazine Luiza </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-45" data-target="#mm-45"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Mercado Livre </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-46" data-target="#mm-46"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; NetShoes </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-47" data-target="#mm-47"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Novo Mundo </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-48" data-target="#mm-48"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Pão de Açúcar </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-49" data-target="#mm-49"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Ricardo Eletro </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-50" data-target="#mm-50"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Rio Mar </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-51" data-target="#mm-51"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Shopfácil </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-52" data-target="#mm-52"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; ViaVarejo </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-53" data-target="#mm-53"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Vivo </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-54" data-target="#mm-54"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Vtex </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-55" data-target="#mm-55"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Walmart </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-56" data-target="#mm-56"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Web Continental </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-57" data-target="#mm-57"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Zoom </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-28"><a href="#mm-28" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; allFront 1P </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-29"><a href="#mm-29" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Amazon </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-30"><a href="#mm-30" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; B2W </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-31"><a href="#mm-31" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; B2W FOOD </a></div><ul class="mm-listview"><li><a class="popCarregando" href="../../../../../SG/MarketPlace/B2WFood/EnviarCargaProdutos.php" target="_self" style="color:#FFF"><span><i class=""></i>&nbsp; Carga de Produtos <span></span></span></a></li>
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-32"><a href="#mm-32" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; BestOff </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-33"><a href="#mm-33" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Buscapé </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-34"><a href="#mm-34" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Carrefour </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-35"><a href="#mm-35" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Cissa Magazine </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-36"><a href="#mm-36" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Colombo </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-37"><a href="#mm-37" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Compra Certa </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-38"><a href="#mm-38" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Dafiti </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-39"><a href="#mm-39" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; iFood </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-40"><a href="#mm-40" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Kabum </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-41"><a href="#mm-41" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; LeroyMerlin </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-42"><a href="#mm-42" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Ltm </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-43"><a href="#mm-43" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Madeira Madeira </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-44"><a href="#mm-44" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Magazine Luiza </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-45"><a href="#mm-45" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Mercado Livre </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-46"><a href="#mm-46" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; NetShoes </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-47"><a href="#mm-47" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Novo Mundo </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-48"><a href="#mm-48" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Pão de Açúcar </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-49"><a href="#mm-49" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Ricardo Eletro </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-50"><a href="#mm-50" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Rio Mar </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-51"><a href="#mm-51" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Shopfácil </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-52"><a href="#mm-52" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; ViaVarejo </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-53"><a href="#mm-53" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Vivo </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-54"><a href="#mm-54" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Vtex </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-55"><a href="#mm-55" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Walmart </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-56"><a href="#mm-56" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Web Continental </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-57"><a href="#mm-57" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-27" data-target="#mm-27"></a><a class="mm-title" href="#mm-27"> &nbsp; Zoom </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-58"><a href="#mm-58" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; SAC </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">1</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-59" data-target="#mm-59"></a><span><i class="fa fa-comment"></i> &nbsp; Atendimento </span>
+									</li><li><a class="popCarregando" href="../../../../../../../SG/Manutencoes/Ocorrencia.php" target="_self" style="color:#FFF"><span><i class="fa fa-commenting-o"></i>&nbsp; Ocorrências <span></span></span></a></li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-59"><a href="#mm-59" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-58" data-target="#mm-58"></a><a class="mm-title" href="#mm-58"> &nbsp; Atendimento </a></div><ul class="mm-listview"><li><a class="popCarregando" href="../../../../../SG/Manutencoes/ResponderEmails.php" target="_self" style="color:#FFF"><span><i class="fa fa-envelope-open"></i>&nbsp; Responder E-mail <span></span></span></a></li>
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-60"><a href="#mm-60" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Pedidos </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-61" data-target="#mm-61"></a><span><i class="fa fa-barcode"></i> &nbsp; Boleto </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-62" data-target="#mm-62"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Controle de Mostruario </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-63" data-target="#mm-63"></a><span><i class="fa fa-sitemap"></i> &nbsp; Pedido Vinculado </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-64" data-target="#mm-64"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Relatorios </span>
+									</li>
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-65" data-target="#mm-65"></a><span><i class="fa fa-refresh"></i> &nbsp; Sincronização Gatway </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-61"><a href="#mm-61" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-60" data-target="#mm-60"></a><a class="mm-title" href="#mm-60"> &nbsp; Boleto </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-62"><a href="#mm-62" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-60" data-target="#mm-60"></a><a class="mm-title" href="#mm-60"> &nbsp; Controle de Mostruario </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-63"><a href="#mm-63" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-60" data-target="#mm-60"></a><a class="mm-title" href="#mm-60"> &nbsp; Pedido Vinculado </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-64"><a href="#mm-64" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-60" data-target="#mm-60"></a><a class="mm-title" href="#mm-60"> &nbsp; Relatorios </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-65"><a href="#mm-65" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-60" data-target="#mm-60"></a><a class="mm-title" href="#mm-60"> &nbsp; Sincronização Gatway </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-66"><a href="#mm-66" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Usuários </a></div><ul class="mm-listview">
+										
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-67"><a href="#mm-67" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Precode </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-68" data-target="#mm-68"></a><span><i class="fa fa-refresh"></i> &nbsp; Sincronização </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-68"><a href="#mm-68" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-67" data-target="#mm-67"></a><a class="mm-title" href="#mm-67"> &nbsp; Sincronização </a></div><ul class="mm-listview">
+										</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-69"><a href="#mm-69" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-0" data-target="#mm-0"></a><a class="mm-title" href="#mm-0"> &nbsp; Compras </a></div><ul class="mm-listview">
+										
+										<li><em class="mm-counter">0</em>
+										<a class="mm-next mm-fullsubopen" href="#mm-70" data-target="#mm-70"></a><span><i class="fa fa-angle-double-right"></i> &nbsp; Dropshipping </span>
+									</li>
+									</ul></div><div class="mm-panel mm-hasnavbar mm-hidden" id="mm-70"><a href="#mm-70" class="mm-subblocker"></a><div class="mm-navbar"><a class="mm-btn mm-prev" href="#mm-69" data-target="#mm-69"></a><a class="mm-title" href="#mm-69"> &nbsp; Dropshipping </a></div><ul class="mm-listview">
+										</ul></div></nav2>
+	</div></b></b></div><div style="height:55px;float:left;width:100%;background:#00479c"></div><div style="float:left;width:100%;" onclick="sommenu()"><b><b>
+		<link rel="stylesheet" href="//www.precode.com.br/SG/estloadm.css?b" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" href="//www.precode.com.br/SG/estloadmPrint.css" media="print">
+	
+	<style>
+		.btFechar{cursor: pointer;float:right;width:36px; height:34px;  background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAiCAYAAAA3WXuFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUu	My1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4	gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL2	1tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiI	HhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0FFMzUzQkI4QkMxMTFFNkExNUI5QkMwMDA3MjZBOUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0FFMzUzQkM4QkMxMTFFNkExNUI5QkMwMDA3	MjZBOUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozQUUzNTNCOThCQzExMUU2QTE1QjlCQzAwMDcyNkE5RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo	zQUUzNTNCQThCQzExMUU2QTE1QjlCQzAwMDcyNkE5RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk5N1kIAAALLSURBVHjazJ	i7T1RBFMbvIpUJPVD4itEQV2oT2fiIlkrN7iZGC0KhjSTYKHfv0vhIsNBCTRQSltV2tRRCgf+BJGhhfCTq9qiVZPlOci4ZrjNzzrC7xJN8mYV7Zs7vzp0zr1yr1YpCbKxYPoTiAlSAjkEHoD5+vAF9g	z5C76Al6IuvvZf12o6/ewNALqK4AV3yuBHYIHQKusL/ew09ht5q4vQqQI6imBVAfHaZRWA3oU8+5x4B5hqKD23AZMHoU17dFRBgZlA8h/ZFnTNq6wVUDQICDFW4HXXP7kCJCggwJa7QbZumcNl/5sy0BwxlyPdob20Qqf/T1UN1RQPvA4JpfBetnwy9M4LijFQZbzOMclIRiFJ8WPGS5xD7tK2HEqHiAmDKPLvSvFTx+MbQQ/5NY7ImtJ3sGEMgHM	DvH54Ka4A4aUmAacuLxI60XoNOeGIMIEYz7aFR4Q2OIPiUZR2qMoAEcws6LMQYNT9ZQXDeD90DVGx5RgBPWVXH57vLbfisYAINKbOm4oCaYP3jL4w104ZMoP6AVHZB2WDigHb7TaC+wMmMoJ54nj8	LhNlmSIFa0X9iKdCv0B5Chk14no8r5rWsbZhAzYCKMWAS5RgKgWqaQOsBMLbUTtO+nSxbN4FWBeff0JQDJuZPNO4YyAlPjH+EGKsmUENw/gyYB5alI870gCvV71MbQozGNhDvR5Y9znkEX8jAuD6HDaomrGNLtI5lV3tp3igDYpFhJgX/Cm8/0j1WSRqbrh3jCoqzQmVatfPKgarxXUHvnHftGIuKIPmAVNb4Fp2bfB5LpWjvbCwdO85TBxzqvnNTB42mg1eqcxmgaJDNdBGm6powezy3ErQ9paP0ZgdB/vJROt7V2R5QcyiO80VBu9bgtuZ9Tjnt/RBfx1znSwOtUeNvoEd8VyTeD+XauLAa4Qurg5kLq6/GhdVy6IXVlgADACX82IK3x/nXAAAAAElFTkSuQmCC");	}
+					
+	</style>
+
+	
+	
+	
+	<div id="popalerta">OK</div>
+	<script>
+	
+	function avisoPop(memsagem, tipo, tempo )
+	{
+		var fundo;
+		var borda;
+		var fontcor;
+
+		if(tipo == "verde")
+		{
+			fundo 		= "#cee1c8";
+			borda 		= "1px solid #a1bc98";
+			fontcor 	= "#5d7350";
+		}
+		if(tipo == "vermelho")
+		{
+			fundo 		= "#efe0dd";
+			borda 		= "1px solid #c8b7b0";
+			fontcor 	= "#995348";
+		}
+
+		document.getElementById('popalerta').style.opacity = "10";
+		document.getElementById('popalerta').style.transition = "1s";
+		document.getElementById('popalerta').style.bottom = "0";
+		document.getElementById('popalerta').innerHTML = memsagem;
+		document.getElementById('popalerta').style.background = fundo;
+		document.getElementById('popalerta').style.border = borda;
+		document.getElementById('popalerta').style.color = fontcor;
+		window.setTimeout(function(){  document.getElementById('popalerta').style.opacity = "0"; document.getElementById('popalerta').style.bottom = "-90px"; }, tempo);
+	}
+	
+	</script>
+	
+	<div style="background-color:#eaeaea;float:left;height:auto;width:100%; ">
+		<div style="margin-left:auto; margin-right:auto;width:99%; ">
+		
+
+<div style="float:left;height:100%;width:100%">
+		<style>
+		 .lin{border-top:1px #999 solid}
+		 .tits1{float:left;width:200px; margin-top:6px;text-align:left;text-indent:10px; }
+		 .tits1tot{float:left;width:195px; margin-top:15px; margin-left:5px; text-align:left;text-indent:5px;  background-color:#d8d8d8; border-radius: 5px 0 0 5px; height:25px; line-height:25px;font-size:15px }
+		 .tits2{float:left;width:70px;margin-top:6px; text-align:center;}
+		 .tits2tot{float:left;width:70px;margin-top:15px; text-align:center; background-color:#d8d8d8; height:25px;line-height:25px}
+		 .tits3{float:left;width:100px;margin-top:6px; text-align:right; }
+		 .tits3tot{float:left;width:100px;margin-top:15px; text-align:right; background-color:#d8d8d8; height:25px;line-height:25px}
+		 .tits4tot{float:left;width:70px;margin-top:15px; text-align:center; background-color:#d8d8d8; height:25px;line-height:25px;border-radius: 0 5px 5px 0;}
+		</style>
+		<br><center><b>
+
+		<div style="float:left;width:100%;height:40px;background:#eaeaea;">
+			<div style="margin-left:auto; margin-right:auto; width:1220px; height:40px; text-align:left; line-height:40px; color:#58595b; font-weight:500; font-size:22px">Oi, <b style="color:#ec461c;font-size:22px; font-weight:700;">cadastro.evolusom1!</b> Bem-vindo. 
+			<a href="../../SG/scripts/renovaSenha.php">Alterar Senha</a>
+			
+			</div>
+		</div></b></center><b>
+		
+	<link href="./dashboard/estilo.css" rel="stylesheet">
+	<link rel="stylesheet" href="./dashboard/celular.css?" media="(max-width: 480px)">
+
+	<div style="float: left; width: 100%; height: auto; background-color: #eaeaea; ">
+		<div style="max-width: 1220px; margin-left: auto; margin-right: auto;  height: 100px;">
+		
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1>Produto:</h1> 
+					<div class="numeralindice">3932</div><div class="textolindice"> SKUs Ativos</div>
+					<div class="numeralindice" style="background:#e16384">164</div><div class="textolindice"> SKUs Inativos</div>
+					
+					<div class="numeralindice">1824</div><div class="textolindice"> SKUs Ativos c/ Estoque</div>
+					<div class="numeralindice" style="background:#e16384">2108</div><div class="textolindice"> SKUs Ativos s/ Estoque</div>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Produtos Sem Categoria (Seu):</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./scripts/dashboard/produto/relatorio_SemCategoria.php?user=554&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de produtos sem categoria</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"75f9fd45c9",applicationID:"175962182"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(c(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(5),c=e(6),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,n){s[n]=i(p+n,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(l+"tracer",[u.now(),e,t],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&d("lcp",[t[t.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var n=Math.round(e.timeStamp),t={type:e.type};n<=p.now()?t.fid=p.now()-n:n>p.offset&&n<=Date.now()?(n-=p.offset,t.fid=p.now()-n):n=p.now(),g=!0,d("timing",["fi",n,t])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(4),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e){function n(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,n,!1)}n.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],5:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],6:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],7:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function t(t,r,i,o){if(!p.aborted||o){e&&e(t,r,i);for(var a=n(i),c=v(t),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[t]];return d&&d.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(t)}function y(e,n){u(e,function(e,t){n=n||"feature",w[t]=n,n in s||(s[n]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(5),s={},d={},p=n.exports=i();p.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(w,function(n,t){e[n]||(e[n]=t)});var t=a();f("mark",["onload",t+E.offset],null,"api"),f("timing",["load",t]);var r=l.createElement("script");r.src="https://"+e.agent,n.parentNode.insertBefore(r,n)}}function i(){"complete"===l.readyState&&o()}function o(){f("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(c=Math.max((new Date).getTime(),c))-E.offset}var c=(new Date).getTime(),f=e("handle"),u=e(5),s=e("ee"),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,y=g&&g.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var h=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1177.min.js"},b=g&&y&&y[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:c,now:a,origin:h,features:{},xhrWrappable:b,userAgent:d};e(1),e(2),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),f("mark",["firstbyte",c],null,"api");var x=0,O=e(7)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(6),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof t?t(r,a):t||{}}catch(u){p([u,"",[r,a,i],c])}s(n+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(n+"err",[r,a,d],c),d}finally{s(n+"end",[r,a,f],c)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<n.length;f++)c=n[f],a=e[c],r(a)||(e[c]=t(a,u?c+i:i,o,c))}function s(t,r,i){if(!f||n){var o=f;f=!0;try{e.emit(t,r,i,n)}catch(a){p([a,t,r,i])}f=o}}function d(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){p([r])}for(var i in e)c.call(e,i)&&(n[i]=e[i]);return n}function p(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 54.1,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 45.9,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 414 produtos sem Categoria. Atrasado: 224</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:22px">Produtos à Cadastrar</h1>
+					</div>
+				</div>
+				<div class="quadrado770x380 sombra">
+					<div class="quadradocentro" style="min-width: 90%; width:auto">
+						<h1 style="float: left; width: 245px; height:20px">Ultimos Log de Carga:</h1> 
+			<style>
+				.icone20{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUYwNUYwMDJGQ0I1MTFFODlGMUY4ODlCRTIyRUI2NUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUYwNUYwMDNGQ0I1MTFFODlGMUY4ODlCRTIyRUI2NUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFRjA1RjAwMEZDQjUxMUU4OUYxRjg4OUJFMjJFQjY1RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFRjA1RjAwMUZDQjUxMUU4OUYxRjg4OUJFMjJFQjY1RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ptqg+L0AAAJpSURBVHjavFU7axRRFD7nziMkioma4DMxGogIlmnEwsZaUAsbCwtBULBRBLVQVLQwigR/gyAWYuW/sDKiBFcQiSJGEBTMzs49fidzVieTnRl3VzzwzT33+Z3XvcMbrnjKCzNNxkH6BOp6QHJT39A5zUSzwnSZhe5gbBetlpZP3SkRekH8ZzBcdQ4mIif3oc3QWlmABTGJHMaWG+gPAfuKi1zg51rL7hDOSn+PCXptsKNjjuVoBwI15S0IhjLDaCvQ6LQOkTjILGd8EywGpzQC34llJGZ/T6izwMn3aLZZd0xKSBAqCmK5iZPHV0IGODCsaGEg16FNlnBgGS+g2WLdKeAdlcumaNDfdREIFOpEQHIgJDknFbtg4kd895pXasxS1XJ2csKxP6KuOXESR4F/aLGukkUcvtP0CeRwsXK1Gh/JA/E8EsKD845oP8a+V2xJcegSymMM+g9gGMlNcNAH6BsLpZ5P5I4w9pd49Foyg5CpF74851qOMg9VwzUILKP/GsTTmBwoJdGc4+6EILgNZU9NqH6C4DjaWcry8QX9kyCYg769Zm8jtE1TNQubQGTG7LYQRbavjsSrOwnVS9NCkpT0qyRx9B+kW5LI2ribTWEXa5v2Xmm1fc4q7N+SqAebgbO2J7VSjrsl+WTWdron+uo+L8wr8fDfkrR/L1eBV4U8tUv3MTDea+LD3G29SNnT4mxM2wnKbvS6fqorzFl+C5g3z8Q8eAaM9lvC+Tfrgv7Hc6RsefoKTHdbtmWe6Lv0spCTloXrqYWuZ5L2BXtU8RL38zIMKMkbe4M4V2lr/ic9Euh5jV8CDADesKiPPd7CdQAAAABJRU5ErkJggg=="); }
+			</style>
+				<a style="cursor:pointer" onclick="poplateraldireito(&quot;../../../SG/MarketPlace/Configuracoes/ProdutosLogRetorno.php?&quot;, 70)" class="tooltip"><span style="margin-left: 273px;margin-top: 47px;"><b style="margin-left:165px"></b><center>Clique para ver mais informações.</center></span>
+					<div style="float:right ; width: 25px; margin-top:10px "><div class="icone20"></div></div>
+				</a><table class="tabelabord" cellpadding="0" cellspacing="0" style="border:0"><tbody><tr class="">
+						<td style="font-weight:700;width:90px">SKU</td>
+						<td style="font-weight:700">Parceiro</td>
+						<td style="font-weight:700">Retorno</td>
+					</tr><tr class="fundosim">
+						<td style="text-align: center">176764</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 176764 falha na carga do produto: {code:400,message:Garantia reque</td>
+					</tr><tr class="fundonao">
+						<td style="text-align: center">268942</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 268942 falha na carga do produto: {code:400,message:Garantia reque</td>
+					</tr><tr class="fundosim">
+						<td style="text-align: center">134206172</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 134206172 inserido/atualizado com sucesso</td>
+					</tr><tr class="fundonao">
+						<td style="text-align: center">364523</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 364523 falha na carga do produto: {code:400,message:Garantia reque</td>
+					</tr><tr class="fundosim">
+						<td style="text-align: center">364533</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 364533 falha na carga do produto: {code:400,message:Garantia reque</td>
+					</tr><tr class="fundonao">
+						<td style="text-align: center">347982</td>
+						<td>Cissa Magazine</td>
+						<td>SKU 347982 falha na carga do produto: {code:400,message:Garantia reque</td>
+					</tr></tbody></table>
+					</div>
+				</div>
+				
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Cnova:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=401&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Cnova</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 73.7,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 26.3,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9401").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 19 skus sem carga. Atrasado: 14</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Cissa:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=415&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Cissa</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 93.8,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 6.2,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9415").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 97 skus sem carga. Atrasado: 91</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Carrefour:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=413&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Carrefour</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 68.6,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 31.4,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9413").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 35 skus sem carga. Atrasado: 24</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para LeroyMerlin:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=420&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) LeroyMerlin</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 98.7,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 1.3,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9420").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 821 skus sem carga. Atrasado: 810</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Colombo:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=419&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Colombo</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 94.1,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 5.9,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9419").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 188 skus sem carga. Atrasado: 177</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para MadeiraMadeira:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=417&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) MadeiraMadeira</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 98.7,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 1.3,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9417").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 816 skus sem carga. Atrasado: 805</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para MercadoLivre:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=405&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) MercadoLivre</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 98.4,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 1.6,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9405").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 674 skus sem carga. Atrasado: 663</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para B2W:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=414&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) B2W</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 81.8,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 18.2,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9414").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 55 skus sem carga. Atrasado: 45</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Luiza:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=411&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Luiza</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 86.3,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 13.7,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9411").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 73 skus sem carga. Atrasado: 63</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Zoom:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=410&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Zoom</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 89.3,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 10.7,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9410").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 103 skus sem carga. Atrasado: 92</h2>
+				
+					</div>
+				</div>
+				<div class="quadrado380x300 sombra">
+					<div class="quadradocentro">
+						<h1 style="float: left; width: 305px; height:20px">Carga para Amazon:</h1> <style>
+					.icone12{float: left; width: 25px;height:24px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkIyNDU2MUVGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkIyNDU2MUZGQzk4MTFFODgzREFGQzVBMTFGMEE4NTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQjI0NTYxQ0ZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQjI0NTYxREZDOTgxMUU4ODNEQUZDNUExMUYwQTg1OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PofqO7QAAALuSURBVHjatJZdSFRBFMdn3S+T3DQisUjpy4rSJCL7kl6MsKKU7CEpIij68KEoCRIqpJRerIg+oF7qJbSsjKR6KB8qQSglCLLUJK0MpWi3VHTX3dtvttNy0d3MaC/8mLkzc86ZmfOfuVfNf/jd4FHRJKZnMKCi/cS47JboB4l+CIJ4fIZaXtdrXG73GtEKYvORklcev2rr9f8Xh5ZqdwzFHFgBy8BjiycnW1Mcasd0x786dVIsgqWwGBZIEKcMeWeLsypVnh5rGYPTeIqZsBqyIQNS/2BSYRtNwTidJDPLldmmw2TTkC6ogvewEebCZ0iGN3DVMrHGbWgZb091qNLmAb2fU2AeLIG1sBDGm5x+gJdQB7Vghw2wXxyXy6Q26XajIOGeTUvKxmY1uoOJb4IZ4BKHurtF2h9DPbRj6GWFNur7oBDSYEhW+wNK4JkOEFRXIqtozXVZMGrgPUuc34Er8Bo+Mtg/bAu1823QAT54ATsZ1yl+DFnZLwnHWkM51zO6CGtgGnzFqGOYc70Fe3VguA55sspDjB2if5dMtJL3ppBdSq3H6FjnsogTXZbBEenXxqdp13o/DrGy51pNB+AE/ZViO04SnaglTXtbaCVuTry92m0UzXIqOnSQEgwaKS9o+VHP1z7gvCS7TCScz/gW00IPQwqcMgcIXisO9JSZYFUZE6yhRgbdolgFrbBShNAvUvVCjjkAE0miKIYeODviWkkg8c9z4kccRpy8xbiZ6mw5G3ehmvaiMMepVGReTH/3WG9h27D3AgLfAJdpFZkUuyUf18Lewr2oe0tDv/Goe+hvbmF9ujfDE5ynS9sxk0gGwgbp8xvq9icv+MLeKqZ6udxTZ+QWqCfQJS0AeEqA+xG3I45zsj7ZrvKm2sP1/1bDUZyclPpBnOukV8AeCEjSIz9pDzwRfyTUzW/ZUBihLwvq4dxoPxJKH8aqTq/xZTAQtb+W4HbVdPlUe59fkXoj8J8+wtoN6VZJTov6KcAATELOk6skUsYAAAAASUVORK5CYII="); }
+				</style>
+					<a style="cursor:pointer" onclick="poplateraldireito(&quot;./MarketPlace/Configuracoes/ProdutosParaCadastrar.php?parceiro=416&amp;filtropreco=sim&quot;, 70)" class="tooltip"><span style="margin-left: 295px;margin-top: 47px;"><b style="margin-left:10px"></b><center>Clique! Lista de Skus pendente carga no(a) Amazon</center></span>
+						<div style="float:right ; width: 25px; margin-top:10px "><div class="icone12"></div></div>
+					</a><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico2.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex">
+				
+				<style class="cp-pen-styles"></style>
+				<canvas id="myChart3" width="340" height="210" style=" background:url(../images/moti_preocupado.png); "></canvas>
+				<script src="//www.replicade.com.br/SG/scripts/js/dashboard/scriptGrafico3.js"></script><script src="//www.replicade.com.br/SG/scripts/js/dashboard/chart.js"></script>
+				<script>
+
+				var data = [
+				{
+					value: 98.8,
+					color: "rgba(247,70,74,0.7)",
+					highlight: "#FF5A5E",
+					label: "Atrasado %" },
+
+				{
+					value: 1.2,
+					color: "rgba(41,125,119,0.7)",
+					highlight: "#5AD3D1",
+					label: "Dentro do Prazo %" }
+				];
+
+				var ctx = document.getElementById("myChart9416").getContext("2d");
+				new Chart(ctx).Pie(data);
+				//new Chart(ctx).Doughnut(data);
+				//# sourceURL=pen.js
+				</script>
+				<h2>Total de 905 skus sem carga. Atrasado: 894</h2>
+				
+					</div>
+				</div></div>	
+			<div class="espacolinha"></div>
+		</div>
+
+		<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		.modal-content {
+			border-radius: 10px;
+			position: relative;
+			background-color: #fefefe;
+			margin: auto;
+			padding: 0;
+			border: 1px solid #888;
+			width: 25%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+			-webkit-animation-name: animatetop;
+			-webkit-animation-duration: 0.4s;
+			animation-name: animatetop;
+			animation-duration: 0.4s
+		}
+
+		@-webkit-keyframes animatetop {
+			from {top:-300px; opacity:0} 
+			to {top:0; opacity:1}
+		}
+
+		@keyframes animatetop {
+			from {top:-300px; opacity:0}
+			to {top:0; opacity:1}
+		}
+
+		.close {
+			color: #434343;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.modal-header {
+			border-radius: 10px 10px 0 0;
+			padding: 2px 16px;
+			background-color: #fff;
+			color: white;
+			border-bottom: 1px solid #DCDCDC;
+		}
+
+		.modal-body {padding: 16px 16px; float:left; width: 100%; height:auto;    box-sizing: border-box; }
+
+		.modal-footer {
+			display: flex;
+			justify-content: flex-end;
+			border-radius: 0 0 10px 10px;
+			border-top: 1px solid #DCDCDC;
+			padding: 2px 16px;
+			background-color: #fff;
+			color: white;
+		}
+
+		.btn {
+			margin: 10px;
+			display: inline-block;
+			font-weight: normal;
+			line-height: 1.25;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			border: 1px solid transparent;
+			padding: 0.5rem 1rem;
+			font-size: 1rem;
+			border-radius: 0.25rem;
+			-webkit-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+			color: #292b2c;
+			background-color: #fff;
+			border-color: #ccc;
+		}
+
+		.btnConfirmar {
+			background-color: #337ab7;
+			border-color: #2e6da4;
+			color: #fff;
+		}
+
+		.p-content {
+			line-height: 1.5;
+			float:left; width: 95%;height:auto
+		}
+	</style>
+	
+		<div class="popupdiv" id="popupDir">
+					<div class="popupdiv-inner">
+					<div id="btFecharDir" onclick="fechaPopUpDir()"></div>
+					
+						<div style="width:100%; height:100%; margin-bottom:10px;">		<div class="popinner" style="overflow:hidden;">
+							<iframe id="myIframe" src="" style="width:99%; height:99%;overflow:hidden;border:0px;"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</b></div><b>		
+		<style>
+			
+			#popupDir{ z-index:-1; width:0px;  resize:both;  -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */ transition: width 1s}
+		
+			div.popupdiv
+			{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				right: 0;
+				z-index:11;
+				
+			}
+			div.popupdiv-inner
+			{
+				float: right;width:100%; margin-top:4px; height:98%;border-left:1px solid #000; border-bottom:1px solid #5f5f5f;border-top:1px solid #5f5f5f;background-color:#FFF
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), -10px 0px 15px 0 rgba(0, 0, 0, 0.19); 
+			}
+			div.popinner
+			{
+				float: left;width:100%; height:100%; overflow-y:scroll; background-color:#edf0f2;
+			}
+			#btFecharDir
+			{
+				width:25px;
+				height:48px;
+				background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAwCAIAAABrKEbKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhEMzhFNDA3MkQzNzExRThBQjczQTQyOUZGRkQ4OUEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhEMzhFNDA4MkQzNzExRThBQjczQTQyOUZGRkQ4OUEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEQzOEU0MDUyRDM3MTFFOEFCNzNBNDI5RkZGRDg5QTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEQzOEU0MDYyRDM3MTFFOEFCNzNBNDI5RkZGRDg5QTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Y9W9OAAAAyklEQVR42mKMj49noBJgAeLeiZOpYhYTA/XAqFmjZo2aNWrWCDDr7ifG749PU8EsoEHT1m7dMm8r4+PdFJkFMUjg0SlXW9n/srbkmwU3KNdWVsApmoGBg0yziDeIgFkkGUTArN0vPwo8uqXBwCCpo0bQIAJmZajySQYn3WAQWLFsD+er05SmrxQdkHGXPgquWLaFoHGE45F444hKX8jG/cNtHLHpHmKcpjg/k5gcvnYO8cYx6BSNll+jZo2aNWrWIDGLkYp9PoAAAwA1qlDkeL0rzgAAAABJRU5ErkJggg==");
+				float:left;
+				cursor: pointer;
+				margin-top:70px;
+				margin-left: -25px;
+				position: absolute
+			}
+		
+		</style>
+		<script>
+			
+			
+			var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+			enableScroll();
+			document.getElementsByTagName("body")[0].style.overflow = "block";			
+			
+			function preventDefault(e) {
+				e = e || window.event;
+				if (e.preventDefault)
+				e.preventDefault();
+				e.returnValue = false;
+			}
+
+			function preventDefaultForScrollKeys(e) {
+				if (keys[e.keyCode]) {
+					preventDefault(e);
+					return false;
+				}
+			}
+
+			function disableScroll() {
+				if (window.addEventListener) // older FF
+					window.addEventListener("DOMMouseScroll", preventDefault, false);
+				window.onwheel = preventDefault; // modern standard
+				window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+				window.ontouchmove  = preventDefault; // mobile
+				document.onkeydown  = preventDefaultForScrollKeys;
+			}
+
+			function enableScroll() {
+				if (window.removeEventListener)
+					window.removeEventListener("DOMMouseScroll", preventDefault, false);
+				window.onmousewheel = document.onmousewheel = null;
+				window.onwheel = null;
+				window.ontouchmove = null;
+				document.onkeydown = null;
+
+			}
+			
+				
+			function fechaPopUpDir()
+			{
+				
+			
+				if(document.getElementById("popupDir").style.width == "0px")
+				{
+					document.getElementById("popupDir").style.width = "85%";
+					
+					document.getElementById("btFecharDir").style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAwCAIAAABrKEbKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUzQjYxQTg4MkQzNDExRThBOTVCQTM4M0MxOEFFMTQwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUzQjYxQTg5MkQzNDExRThBOTVCQTM4M0MxOEFFMTQwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTNCNjFBODYyRDM0MTFFOEE5NUJBMzgzQzE4QUUxNDAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTNCNjFBODcyRDM0MTFFOEE5NUJBMzgzQzE4QUUxNDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5FuHX6AAAAy0lEQVR42mKMj49noBJgAeLeiZOpYhYTA/XAqFmjZo2aNWrWsDXr5a3lfXOufKKCWf9ePbr+8uPztfOIMY6AWUxiphFRPnr874kxjnB4fSfaOKLCnkjjiI1HsHEuGgwfgMbNuP2JwjTx4/mVWzcYGD7IqbmK81Ni1o8P+5ZOPvz4g5xZVrC3Mt9/ss0iyiBizCLWIMJmMT4+vJs4g6BtEzzgv6yrT5KAEb8ZQYMImwUEnLKmygz/R8uvUbNGzRo1a7CZxUjFPh9AgAEA/apgdr2TurAAAAAASUVORK5CYII=')";
+					
+				}else {
+					document.getElementById("btFecharDir").style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAwCAIAAABrKEbKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhEMzhFNDA3MkQzNzExRThBQjczQTQyOUZGRkQ4OUEwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhEMzhFNDA4MkQzNzExRThBQjczQTQyOUZGRkQ4OUEwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEQzOEU0MDUyRDM3MTFFOEFCNzNBNDI5RkZGRDg5QTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEQzOEU0MDYyRDM3MTFFOEFCNzNBNDI5RkZGRDg5QTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Y9W9OAAAAyklEQVR42mKMj49noBJgAeLeiZOpYhYTA/XAqFmjZo2aNWrWCDDr7ifG749PU8EsoEHT1m7dMm8r4+PdFJkFMUjg0SlXW9n/srbkmwU3KNdWVsApmoGBg0yziDeIgFkkGUTArN0vPwo8uqXBwCCpo0bQIAJmZajySQYn3WAQWLFsD+er05SmrxQdkHGXPgquWLaFoHGE45F444hKX8jG/cNtHLHpHmKcpjg/k5gcvnYO8cYx6BSNll+jZo2aNWrWIDGLkYp9PoAAAwA1qlDkeL0rzgAAAABJRU5ErkJggg==')";
+					document.getElementById("popupDir").style.width = "0px";
+					document.getElementsByTagName("body")[0].style.overflow = "auto";
+					enableScroll();
+				}
+			}
+			
+			function fechaPopUp()
+			{
+				document.getElementById("popupDir").style.display = "none";
+				document.getElementsByTagName("body")[0].style.overflow = "auto";
+				enableScroll();
+			}
+			
+			
+			function ocorrenciapop(url)
+			{
+				var url2 = "//admsiberiano.precode.com.br/SG/"+url;
+				document.getElementById("popupDir").style.display = "block";	
+				
+				document.getElementById("myIframe").src = url2;
+			}
+		</script>
+		
+		
+<script type="text/javascript">
+	$(document).ready(function() {	 
+	// Ao pressionar o Esc, o alert é mostrado             
+	$(document).keyup(function(e) {
+	if (e.keyCode == 27) 
+	{
+		
+		fechaPopUpDir();
+	}
+	});
+	 
+	});
+	
+
+
+	function poplateraldireito(url,tamanho,carregando)
+	{
+		
+	
+		document.getElementById("popupDir").style.zIndex = 1;
+		
+		if(url.substr(0, 4) == "http"){
+			var url2 = url;
+		}else{
+			 var url2 = "//admsiberiano.precode.com.br/SG/"+url;
+		}
+
+
+		document.getElementById("popupDir").style.width = tamanho+"%";
+		document.getElementById("btFecharDir").style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAwCAIAAABrKEbKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUzQjYxQTg4MkQzNDExRThBOTVCQTM4M0MxOEFFMTQwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUzQjYxQTg5MkQzNDExRThBOTVCQTM4M0MxOEFFMTQwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTNCNjFBODYyRDM0MTFFOEE5NUJBMzgzQzE4QUUxNDAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTNCNjFBODcyRDM0MTFFOEE5NUJBMzgzQzE4QUUxNDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5FuHX6AAAAy0lEQVR42mKMj49noBJgAeLeiZOpYhYTA/XAqFmjZo2aNWrWsDXr5a3lfXOufKKCWf9ePbr+8uPztfOIMY6AWUxiphFRPnr874kxjnB4fSfaOKLCnkjjiI1HsHEuGgwfgMbNuP2JwjTx4/mVWzcYGD7IqbmK81Ni1o8P+5ZOPvz4g5xZVrC3Mt9/ss0iyiBizCLWIMJmMT4+vJs4g6BtEzzgv6yrT5KAEb8ZQYMImwUEnLKmygz/R8uvUbNGzRo1a7CZxUjFPh9AgAEA/apgdr2TurAAAAAASUVORK5CYII=')";
+
+		document.getElementById("myIframe").src = url2;
+
+		
+	}
+
+	
+</script>
+					</b></div><b>
+			</b></div><b>
+		</b></b></b></div><b><b><b>
+	</b></b></b></div><b><b><b>
+	
+
+	
+
+		
+	<br>
+
+	
+	
+	<script>
+	
+	jQuery(window).load(function() {
+			document.getElementById("carregarv2").style.display = "none";	
+		});
+		
+	</script>
+	
+	<script>
+	
+	
+	
+	
+		function poplateral(url)
+		{
+			
+			
+			var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			x = (w.innerWidth || e.clientWidth || g.clientWidth)-540,
+			
+			y = (w.innerHeight|| e.clientHeight|| g.clientHeight)-50;
+
+			var url2 = "//admsiberiano.precode.com.br/SG/"+url;
+
+			document.getElementById("telalateral").style.display = "block";
+			
+			document.getElementById("telalateral").style.width = "500px";
+			
+			document.getElementById("telaprincipal").style.width = x+"px";
+
+			
+			
+			
+			document.getElementById("myIframelat").src = url2;
+			document.getElementById("myIframelat").style.height = y+"px";
+			
+		}
+		function poplateralfecha()
+		{
+			document.getElementById("telalateral").style.display = "none";	
+			document.getElementById("telaprincipal").style.width = "100%";
+			document.getElementById("telaprincipal").style.height = "auto";
+			document.getElementById("telaprincipal").style.overflow = "hidden";	
+			document.getElementsByTagName("body")[0].style.overflow = "auto";
+			
+		}
+		
+		
+	</script>
+	
+	
+	<div class="tituloI">Impresso por: cadastro.evolusom1 (Siberiano)</div>
+	<script>
+	
+	
+	 window.onbeforeunload = function(e) {
+	 	document.getElementById("carregarv2").style.display = "block";	
+	};
+	
+	</script>
+	
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"75f9fd45c9","applicationID":"175962182","transactionName":"ZlJVY0JQWkBZW0FaCV8YYkVZHmd0F0tWQQ9BQ0QYXF5TWlYWRVsW","queueTime":0,"applicationTime":1273,"atts":"ShVWFQpKSU4=","errorBeacon":"bam.nr-data.net","agent":""}</script></b></b></b></body></html>

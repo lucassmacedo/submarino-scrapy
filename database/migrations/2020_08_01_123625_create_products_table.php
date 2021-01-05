@@ -15,8 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('code')->unique();
-            $table->string('barcode', 20);
+            $table->bigInteger('code')->unique();
+            $table->string('barcode', 20)->nullable()->unique();
             $table->string('name');
             $table->string('href');
             $table->float('price', 10, 2)->nullable();
@@ -24,6 +24,9 @@ class CreateProductsTable extends Migration
             $table->jsonb('images')->nullable();
             $table->jsonb('attributes')->nullable();
             $table->timestamps();
+
+            $table->index('code');
+            $table->index(['code', 'barcode']);
         });
 
     }

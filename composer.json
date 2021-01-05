@@ -18,6 +18,7 @@
     "require": {
         "php": "^7.2.5",
         "guzzlehttp/guzzle": "^6.3.1",
+        "harrygulliford/laravel-firebird": "^2.3",
         "hmazter/laravel-schedule-list": "^2.1",
         "html2text/html2text": "^4.3",
         "illuminate/database": "^7.0",
